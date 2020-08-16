@@ -82,7 +82,7 @@ class Bert_TCN(nn.Module):
         bert_encoded_embeds = []  # [batch_size utt_num] * max_seq_len * hidden_size
 
         for input_utterances_piece, input_utterances_masks_piece in zip(input_utterances, input_utterances_masks):
-            _, _, bert_encoded_piece = self.bert_layer(input_utterances_masks_piece, input_utterances_masks_piece)
+            _, _, bert_encoded_piece = self.bert_layer(input_utterances_piece, input_utterances_masks_piece)
             # extract output tensor from the second-to-last layer and average pooling
             # use the [CLS] for sentence embedding
             # bert_batch_size * hidden_size
